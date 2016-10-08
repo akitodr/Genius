@@ -8,7 +8,7 @@ Button* red;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	red = new Button(ofVec2f(100, 100), ofImage ("img/green.png"), ofImage("img/greenClick.png"));
+	red = new Button(ofVec2f(100, 100), "img/green.png", "img/greenClick.png");
 	button.push_back(red);
 }
 

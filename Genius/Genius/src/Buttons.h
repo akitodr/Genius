@@ -16,7 +16,7 @@ private:
 public:
 
 	ofImage* color;
-	Button(ofVec2f pos, ofImage notClicked, ofImage clicked);
+	Button(ofVec2f pos, char* notClicked, char* clicked);
 	~Button();
 	bool IsClicked;
 	bool OnClick(ofVec2f posMouse, ofVec2f posButton);

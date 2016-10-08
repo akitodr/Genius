@@ -1,10 +1,9 @@
 #include "Buttons.h"
 
-Button::Button(ofVec2f pos, ofImage notClicked, ofImage clicked) {
+Button::Button(ofVec2f pos, char* notClicked, char* clicked) {
 	position = pos;
-	color[0] = notClicked;
-	color[1] = clicked;
 	color[0].load(notClicked);
+	color[1].load(clicked);
 }
 
 bool Button::OnClick(ofVec2f posMouse, ofVec2f posButton) {
