@@ -1,14 +1,15 @@
 #include "Buttons.h"
 
-Button::Button(ofVec2f pos, char* notClicked, char* clicked) {
+Button::Button(ofVec2f pos, char* notClicked, char* clicked, char* sound) {
 	position = pos;
-	color[0].load(notClicked);
-	color[1].load(clicked);
+	colorNotClicked.load(notClicked);
+	colorClicked.load(clicked);
+	note.load(sound);
 }
 
-bool Button::OnClick(ofVec2f posMouse, ofVec2f posButton) {
-	return (posMouse.x > posButton.x && posMouse.x < (posButton.x + SIZEX)
-		&& posMouse.y > posButton.y && posMouse.y < (posButton.y + SIZEY));
+bool Button::Check(ofVec2f posMouse) {
+	return (posMouse.x > position.x && posMouse.x < (position.x + SIZEX)
+		&& posMouse.y > position.y && posMouse.y < (position.y + SIZEY));
 }
 
 void Button::Play() {
@@ -16,10 +17,14 @@ void Button::Play() {
 }
 
 void Button::Draw() {
-	if (!IsClicked)
-		color[0].draw(position.x, position.y);
-	else
-		color[1].draw(position.x, position.y);
+	if (!IsClicked) {
+		colorNotClicked.draw(position.x, position.y);
+		cout << "Verde" << endl;
+	}
+	else {
+		colorClicked.draw(position.x, position.y);
+		cout << "Deu ruim!" << endl;
+	}
 }
 
 Button::~Button() {

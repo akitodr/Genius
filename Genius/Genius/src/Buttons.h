@@ -9,17 +9,17 @@ class Button {
 
 private:
 
-	
 	ofVec2f position;
-	ofSoundPlayer* notes;
+	ofImage colorNotClicked;
+	ofImage colorClicked;
+	ofSoundPlayer note;
 
-public:
+public: 
 
-	ofImage* color;
-	Button(ofVec2f pos, char* notClicked, char* clicked);
+	Button(ofVec2f pos, char* notClicked, char* clicked, char* sound);
 	~Button();
 	bool IsClicked;
-	bool OnClick(ofVec2f posMouse, ofVec2f posButton);
+	bool Check(ofVec2f posMouse);
 	void Draw();
 	void Play();
 

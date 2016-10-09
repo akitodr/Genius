@@ -3,24 +3,25 @@
 #include <vector>
 
 vector<Button*> button;
+ofVec2f mousePos;
 
-Button* red;
+Button* green;
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	red = new Button(ofVec2f(100, 100), "img/green.png", "img/greenClick.png");
-	button.push_back(red);
+	green = new Button(ofVec2f(100, 100), "img/green.png", "img/greenClick.png", "sound/do.wav");
+	button.push_back(green);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	green->Check(mousePos);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	if (red)
-	red->Draw();
+		green->Draw();
 }
 
 //--------------------------------------------------------------
@@ -30,12 +31,12 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+	
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+	
 }
 
 //--------------------------------------------------------------
@@ -50,7 +51,8 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-	ofVec2f mousePos(x, y);
+	mousePos.set(x, y);
+	green->IsClicked = true;
 }
 
 //--------------------------------------------------------------
