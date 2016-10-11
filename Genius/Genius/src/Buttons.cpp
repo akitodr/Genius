@@ -2,11 +2,11 @@
 
 Button::Button(ofVec2f pos, char* notClicked, char* clicked, char* sound) { //construtor
 	//da load nas parada
+	//cria um botão com todos esses parâmetros
 	position = pos;
 	colorNotClicked.load(notClicked);
 	colorClicked.load(clicked);
 	note.load(sound);
-	srand(time(NULL));
 }
 
 bool Button::Check(ofVec2f posMouse) {//checa colisão do mouse com o botão
@@ -26,20 +26,6 @@ void Button::Update(float secs) {
 			IsClicked = false;
 			note.stop();
 		}
-	}
-}
-
-int Button::Sequence() {
-	int color = rand() % 4;
-	switch (color) {
-	case 0://green
-		break;
-	case 1://red
-		break;
-	case2://blue
-		break;
-	case 3://yellow
-		break;
 	}
 }
 

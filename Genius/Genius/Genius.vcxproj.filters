@@ -10,6 +10,9 @@
     <ClCompile Include="src\Buttons.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Genius1.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -24,6 +27,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Buttons.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Genius1.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

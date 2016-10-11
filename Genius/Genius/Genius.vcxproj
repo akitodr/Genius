@@ -176,11 +176,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Buttons.cpp" />
+    <ClCompile Include="src\Genius1.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Buttons.h" />
+    <ClInclude Include="src\Genius1.h" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>

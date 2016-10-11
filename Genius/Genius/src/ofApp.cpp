@@ -1,53 +1,30 @@
 #include "ofApp.h"
-#include "Buttons.h"
-#include <vector>
+#include "Genius1.h"
 
 float before;
 
-vector<Button*> button;
 ofVec2f mousePos;
-
-Button* green;
-Button* red;
-Button* yellow;
-Button* blue;
+Genius* game;
 
 
 //--------------------------------------------------------------
 void ofApp::setup() {
 	before = ofGetElapsedTimef();
-	green = new Button(ofVec2f(100, 100), "img/green.png", "img/greenClick.png", "sound/do.wav");
-	red = new Button(ofVec2f(100+SIZEX+10, 100), "img/red.png", "img/redClick.png", "sound/re.wav");
-	yellow = new Button(ofVec2f(100, 100+SIZEY+10), "img/yellow.png", "img/yellowClick.png", "sound/fa.wav");
-	blue = new Button(ofVec2f(100 + SIZEX + 10, 100 + SIZEY + 10), "img/blue.png", "img/blueClick.png", "sound/mi.wav");
-	button.push_back(green);
-	button.push_back(red);
-	button.push_back(yellow);
-	button.push_back(blue);
+	game->Init();
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
 	float time = ofGetElapsedTimef() - before;
 	before = ofGetElapsedTimef();
-	green->Check(mousePos);
-	red->Check(mousePos);
-	blue->Check(mousePos);
-	yellow->Check(mousePos);
-	
-	green->Update(time);
-	red->Update(time);
-	blue->Update(time);
-	yellow->Update(time);
-	//green->Play();
+
+	game->Update(mousePos, time, before);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	green->Draw();
-	red->Draw();
-	blue->Draw();
-	yellow->Draw();
+	
+	game->Draw();
 }
 
 //--------------------------------------------------------------
