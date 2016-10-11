@@ -13,6 +13,7 @@ private:
 	ofImage colorNotClicked;
 	ofImage colorClicked;
 	ofSoundPlayer note;
+	float clickTime = 0;
 
 public: 
 
@@ -20,8 +21,8 @@ public:
 	~Button();
 	bool IsClicked;
 	bool Check(ofVec2f posMouse);
+	void Update(float secs);
 	void Draw();
-	void Play();
-
+	int Sequence();
 
 };

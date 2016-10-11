@@ -2,6 +2,8 @@
 #include "Buttons.h"
 #include <vector>
 
+float before;
+
 vector<Button*> button;
 ofVec2f mousePos;
 
@@ -13,6 +15,7 @@ Button* blue;
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	before = ofGetElapsedTimef();
 	green = new Button(ofVec2f(100, 100), "img/green.png", "img/greenClick.png", "sound/do.wav");
 	red = new Button(ofVec2f(100+SIZEX+10, 100), "img/red.png", "img/redClick.png", "sound/re.wav");
 	yellow = new Button(ofVec2f(100, 100+SIZEY+10), "img/yellow.png", "img/yellowClick.png", "sound/fa.wav");
@@ -25,7 +28,17 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
+	float time = ofGetElapsedTimef() - before;
+	before = ofGetElapsedTimef();
 	green->Check(mousePos);
+	red->Check(mousePos);
+	blue->Check(mousePos);
+	yellow->Check(mousePos);
+	
+	green->Update(time);
+	red->Update(time);
+	blue->Update(time);
+	yellow->Update(time);
 	//green->Play();
 }
 
@@ -59,12 +72,13 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-
+	
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button) {
 	mousePos.set(x, y);
+	
 }
 
 //--------------------------------------------------------------

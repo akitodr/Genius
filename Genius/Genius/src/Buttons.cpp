@@ -6,6 +6,7 @@ Button::Button(ofVec2f pos, char* notClicked, char* clicked, char* sound) { //co
 	colorNotClicked.load(notClicked);
 	colorClicked.load(clicked);
 	note.load(sound);
+	srand(time(NULL));
 }
 
 bool Button::Check(ofVec2f posMouse) {//checa colisão do mouse com o botão
@@ -15,27 +16,39 @@ bool Button::Check(ofVec2f posMouse) {//checa colisão do mouse com o botão
 	return IsClicked;
 }
 
-void Button::Play() {
+void Button::Update(float secs) {
+	//note.play();
 
-	note.play();
-	cout << "Não Play!" << endl;
+	if (IsClicked) {
+		clickTime += secs;
 
-	if (!IsClicked) {
-		note.stop();
-		IsClicked = false;
-		cout << "Play" << endl;
+		if (clickTime > 0.5) {
+			IsClicked = false;
+			note.stop();
+		}
 	}
+}
 
+int Button::Sequence() {
+	int color = rand() % 4;
+	switch (color) {
+	case 0://green
+		break;
+	case 1://red
+		break;
+	case2://blue
+		break;
+	case 3://yellow
+		break;
+	}
 }
 
 void Button::Draw() {
-
 	colorNotClicked.draw(position.x, position.y);
-	cout << "Verde" << endl;
 
-	if (IsClicked) {
+	if (!IsClicked) {
 		colorClicked.draw(position.x, position.y);
-		cout << "Não verde!" << endl;
+		cout << "Não!" << endl;
 	}
 }
 
