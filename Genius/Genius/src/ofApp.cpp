@@ -11,18 +11,22 @@ bool mouseClick = false;
 //--------------------------------------------------------------
 void ofApp::setup() {
 	srand(time(NULL));
-	before = ofGetElapsedTimef();
 	game = new Genius();
 	game->Init();
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
-	float time = ofGetElapsedTimef() - before;
-	before = ofGetElapsedTimef();
 
-	mousePos.set(0, 0);
-	game->Update(mousePos, time);
+	float time = ofGetLastFrameTime();
+
+	if (game->State) {
+		game->Sequence(time);
+	}
+	else {
+		game->Update(mousePos, time);
+		mousePos.set(0, 0);
+	}
 }
 
 //--------------------------------------------------------------

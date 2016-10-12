@@ -18,8 +18,10 @@ bool Button::Check(ofVec2f posMouse) {//checa colisão do mouse com o botão
 
 void Button::Play() {
 	if (IsClicked) {
+		//se tiver tocando não vai tocar de novo
 		return;
 	}
+	//se não tiver tocando aí toca
 	note.play();
 	IsClicked = true;
 	clickTime = 0;
@@ -28,7 +30,7 @@ void Button::Play() {
 void Button::Update(float secs) {
 	if (IsClicked) {
 		clickTime += secs;
-
+		//a cada 4 segundos o botão "desliga"
 		if (clickTime > 0.4) {
 			IsClicked = false;
 			note.stop();
