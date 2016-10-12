@@ -11,8 +11,8 @@ bool mouseClick = false;
 //--------------------------------------------------------------
 void ofApp::setup() {
 	srand(time(NULL));
-	game = new Genius();
 	before = ofGetElapsedTimef();
+	game = new Genius();
 	game->Init();
 }
 
@@ -55,6 +55,7 @@ void ofApp::mouseDragged(int x, int y, int button) {
 void ofApp::mousePressed(int x, int y, int button) {
 	mouseClick = true;
 	mousePos.set(x, y);
+	cout << x << "::" << y << endl;
 }
 
 //--------------------------------------------------------------

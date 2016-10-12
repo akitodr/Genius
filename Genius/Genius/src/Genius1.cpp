@@ -13,11 +13,11 @@ void Genius::Init() {
 }
 
 void Genius::Update(ofVec2f posMouse, float time) {
-
-	int color = rand() % 4;
-
+	
 	for (int i = 0; i < button.size(); i++) {
-		button[i]->Check(posMouse);
+		if (button[i]->Check(posMouse)) {
+			button[i]->Play();
+		}
 		button[i]->Update(time);
 	}
 }

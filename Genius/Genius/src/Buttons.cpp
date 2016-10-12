@@ -29,7 +29,7 @@ void Button::Update(float secs) {
 	if (IsClicked) {
 		clickTime += secs;
 
-		if (clickTime > 0.5) {
+		if (clickTime > 0.4) {
 			IsClicked = false;
 			note.stop();
 		}
@@ -37,14 +37,10 @@ void Button::Update(float secs) {
 }
 
 void Button::Draw() {
-	colorNotClicked.draw(position.x, position.y);
-
 	if (!IsClicked) {
 		colorClicked.draw(position.x, position.y);
-		cout << "Não!" << endl;
 	}
-}
-
-Button::~Button() {
-
+	else {
+		colorNotClicked.draw(position.x, position.y);
+	}
 }

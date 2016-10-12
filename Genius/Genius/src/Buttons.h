@@ -18,7 +18,6 @@ private:
 public: 
 
 	Button(ofVec2f pos, char* notClicked, char* clicked, char* sound);
-	~Button();
 	bool IsClicked;
 	bool Check(ofVec2f posMouse);
 	void Update(float secs);
