@@ -23,5 +23,6 @@ public:
 	bool Check(ofVec2f posMouse);
 	void Update(float secs);
 	void Draw();
+	void Play();
 
 };

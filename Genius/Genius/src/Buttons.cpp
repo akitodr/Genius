@@ -7,18 +7,25 @@ Button::Button(ofVec2f pos, char* notClicked, char* clicked, char* sound) { //co
 	colorNotClicked.load(notClicked);
 	colorClicked.load(clicked);
 	note.load(sound);
+	IsClicked = false;
 }
 
 bool Button::Check(ofVec2f posMouse) {//checa colisão do mouse com o botão
-	IsClicked = (posMouse.x > position.x && posMouse.x < (position.x + SIZEX)
+	return (posMouse.x > position.x && posMouse.x < (position.x + SIZEX)
 		&& posMouse.y > position.y && posMouse.y < (position.y + SIZEY));
 
-	return IsClicked;
+}
+
+void Button::Play() {
+	if (IsClicked) {
+		return;
+	}
+	note.play();
+	IsClicked = true;
+	clickTime = 0;
 }
 
 void Button::Update(float secs) {
-	//note.play();
-
 	if (IsClicked) {
 		clickTime += secs;
 

@@ -5,10 +5,13 @@ float before;
 
 ofVec2f mousePos;
 Genius* game;
+bool mouseClick = false;
 
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	srand(time(NULL));
+	game = new Genius();
 	before = ofGetElapsedTimef();
 	game->Init();
 }
@@ -18,7 +21,8 @@ void ofApp::update() {
 	float time = ofGetElapsedTimef() - before;
 	before = ofGetElapsedTimef();
 
-	game->Update(mousePos, time, before);
+	mousePos.set(0, 0);
+	game->Update(mousePos, time);
 }
 
 //--------------------------------------------------------------
@@ -49,12 +53,13 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-	
+	mouseClick = true;
+	mousePos.set(x, y);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button) {
-	mousePos.set(x, y);
+	
 	
 }
 

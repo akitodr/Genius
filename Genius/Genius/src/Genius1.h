@@ -3,14 +3,12 @@
 #include "Buttons.h"
 #include <vector>
 
-vector<Button*> button;
 
 class Genius {
 private:
-
+	vector<Button*> button;
 public:
 	void Init();
-	void Update(ofVec2f posMouse, float time, float timeBefore);
+	void Update(ofVec2f posMouse, float time);
 	void Draw();
-	Genius::~Genius();
 };
