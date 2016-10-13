@@ -13,6 +13,7 @@ void ofApp::setup() {
 	srand(time(NULL));
 	game = new Genius();
 	game->Init();
+	game->Sequence();
 }
 
 //--------------------------------------------------------------
@@ -20,7 +21,7 @@ void ofApp::update() {
 
 	float time = ofGetLastFrameTime();
 
-	game->Sequence();
+
 	game->Update(mousePos, time);
 	mousePos.set(0, 0);
 

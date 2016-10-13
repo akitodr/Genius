@@ -31,7 +31,7 @@ void Button::Update(float secs) {
 	if (IsClicked) {
 		clickTime += secs;
 		//a cada 4 segundos o botão "desliga"
-		if (clickTime > 0.4) {
+		if (clickTime > 0.5) {
 			IsClicked = false;
 			note.stop();
 		}

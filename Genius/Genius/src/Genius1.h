@@ -18,4 +18,5 @@ public:
 	void PlayerTime();
 	void Update(ofVec2f posMouse, float time);
 	void Draw();
+	Genius::~Genius();
 };
