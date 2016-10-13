@@ -20,18 +20,14 @@ void ofApp::update() {
 
 	float time = ofGetLastFrameTime();
 
-	if (game->State) {
-		game->Sequence(time);
-	}
-	else {
-		game->Update(mousePos, time);
-		mousePos.set(0, 0);
-	}
+	game->Update(mousePos, time);
+	mousePos.set(0, 0);
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	
+
 	game->Draw();
 }
 
@@ -64,8 +60,8 @@ void ofApp::mousePressed(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button) {
-	
-	
+
+
 }
 
 //--------------------------------------------------------------

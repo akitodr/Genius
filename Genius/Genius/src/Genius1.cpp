@@ -11,21 +11,23 @@ void Genius::Init() {//criando lista de botões
 	//[3] - yellow
 	button.push_back(new Button(ofVec2f(100 + SIZEX + 10, 100 + SIZEY + 10), "img/blue.png", "img/blueClick.png", "sound/mi.wav"));
 
-	State = true;
 	for (int i = 0; i < 4; i++) {//criando array de 4 inteiros aleatórios
 		colors.push_back(rand() % 4);
 	}
 }
 
-void Genius::Sequence(float time) {
-	for (int i = 0; i < colors.size(); i++) {
-		button[colors[i]]->Play();
-		//button[colors[i]]->Update(time);
-		State = false;
-	}
-}
-
 void Genius::Update(ofVec2f posMouse, float time) {
+	//sequence
+	listPos = 0;
+	if (!button[colors[listPos]]->IsClicked) {
+		listPos++;
+		if (listPos > colors.size()) {
+			return;
+		}
+	}
+	else {
+		button[colors[listPos]]->Play();
+	}
 
 	for (int i = 0; i < button.size(); i++) {
 		if (button[i]->Check(posMouse)) {
@@ -34,6 +36,8 @@ void Genius::Update(ofVec2f posMouse, float time) {
 		button[i]->Update(time);
 	}
 }
+
+
 
 void Genius::Draw() {
 

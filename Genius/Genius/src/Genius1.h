@@ -8,10 +8,11 @@ class Genius {
 private:
 	vector<Button*> button;
 	vector<int>colors;
-	bool State;
+	int listPos;
+	bool Status;
 public:
 	void Init();
-	void Sequence(float time);
+	bool Sequence();
 	void Update(ofVec2f posMouse, float time);
 	void Draw();
 };
