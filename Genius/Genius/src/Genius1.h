@@ -14,8 +14,8 @@ private:
 	bool Status;
 public:
 	void Init();
-	bool Sequence();
-	bool PlayerTime();
+	void Sequence();
+	void PlayerTime();
 	void Update(ofVec2f posMouse, float time);
 	void Draw();
 };

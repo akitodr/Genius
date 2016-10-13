@@ -16,22 +16,23 @@ void Genius::Init() {//criando lista de botões
 	}
 }
 
-bool Genius::Sequence() {
-	return SEQUENCE;
+void Genius::Sequence() {
+	Status = SEQUENCE;
+	listPos = 0;
 }
 
-bool Genius::PlayerTime() {
-	return PLAYERTIME;
+void Genius::PlayerTime() {
+	Status = PLAYERTIME;
+	listPos = 0;
 }
 
 void Genius::Update(ofVec2f posMouse, float time) {
 	//sequence
-	if (Sequence()) {
-		listPos = 0;
-		if (!button[colors[listPos]]->IsClicked) {
+	if (Status = SEQUENCE) {
+		if (button[colors[listPos]]->IsClicked) {
 			listPos++;
 			if (listPos > colors.size()) {
-				PlayerTime();
+				Status = PLAYERTIME;
 			}
 		}
 		else {
@@ -39,7 +40,7 @@ void Genius::Update(ofVec2f posMouse, float time) {
 		}
 	} 
 
-	if (PLAYERTIME) {
+	if (Status == PLAYERTIME) {
 		for (int i = 0; i < button.size(); i++) {
 			if (button[i]->Check(posMouse)) {
 				button[i]->Play();
