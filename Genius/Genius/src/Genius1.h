@@ -3,6 +3,8 @@
 #include "Buttons.h"
 #include <vector>
 
+#define SEQUENCE false
+#define PLAYERTIME true
 
 class Genius {
 private:
@@ -13,6 +15,7 @@ private:
 public:
 	void Init();
 	bool Sequence();
+	bool PlayerTime();
 	void Update(ofVec2f posMouse, float time);
 	void Draw();
 };
